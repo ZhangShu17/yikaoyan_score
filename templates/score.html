@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="title">
+        <a title="易考研学员研究生考试统计">易考研学员研究生考试统计</a>
+        <div class="score_bd">
+            <table id="main_table" width="100%">
+                <thead>
+                    <tr class="score_head">
+                        <th width="16">序号</th>
+                        <th width="32">姓名</th>
+                        <th width="32">学校</th>
+                        <th width="16">专业</th>
+                        <th width="16">英语</th>
+                        <th width="16">数学</th>
+                        <th width="16">政治</th>
+                        <th width="16">专业课</th>
+                        <th width="16">总分</th>
+                        <th width="16">排名</th>
+                    </tr>
+                    {% for k,list in list_stu.items %}
+                    <tr class="score_1">
+                        <th width="16">{{k}}</th>
+                        <th width="32">{{list.name}}</th>
+                        <th width="32">{{list.university}}</th>
+                        <th width="16">{{list.major}}</th>
+                        <th width="16">{{list.english_score}}</th>
+                        <th width="16">{{list.math_score}}</th>
+                        <th width="16">{{list.political_score}}</th>
+                        <th width="16">{{list.major_score}}</th>
+                        <th width="16">{{list.english_score|add:list.math_score|add:list.political_score|add:list.major_score}}</th>
+                        <th width="16">{{list.rank}}</th>
+                    </tr>
+                    {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
